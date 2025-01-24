@@ -16,6 +16,7 @@ export class NuevaTareaPage implements OnInit {
 
   constructor() { 
     this.tarea.estado = 'Pendiente';
+    this.tarea.fechaLimite = new Date().toISOString();
   }
 
   ngOnInit() {

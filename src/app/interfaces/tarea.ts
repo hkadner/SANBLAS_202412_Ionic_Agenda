@@ -1,7 +1,7 @@
 export interface Tarea {
     nombre? : string,
     descripcion? : string,
-    fechaLimite? : Date,
+    fechaLimite? : string,
     criticidad? : Criticidad,
     estado?: "Pendiente" | "En proceso" | "Finalizada"
 }
