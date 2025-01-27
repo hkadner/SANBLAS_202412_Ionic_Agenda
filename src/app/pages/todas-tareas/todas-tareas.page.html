@@ -13,4 +13,9 @@
       <ion-title size="large">todasTareas</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-list>
+    <ion-item *ngFor="let tareax of tareas">
+      <app-tarea [tarea]="tareax"></app-tarea>
+    </ion-item>
+  </ion-list>
 </ion-content>
