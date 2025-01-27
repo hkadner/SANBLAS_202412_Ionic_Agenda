@@ -15,7 +15,7 @@ export class TareaComponent implements OnInit {
   //Para ngStyle
   estiloEstado = {}
   estiloPendiente = { color: 'red' }
-  estiloEnProceso = { color: 'orange' }
+  estiloEnProceso = { color: 'blue' }
   estiloTerminada = { color: 'green' }
   //Para ngClass
   tipoCriticidad = '';

@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Nueva Tarea</ion-title>
+    <ion-title>Crear</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -38,6 +38,6 @@
       <ion-select-option value="Baja">Baja</ion-select-option>
     </ion-select>
   </ion-item>
-  <ion-button (click)="guardarTarea()" expand="block" id="b-guardar" size="large">Crear</ion-button>
-  {{ tarea | json}}
+
+  <ion-button (click)="guardarTarea()"[disabled]="!tarea.nombre || !tarea.descripcion || !tarea.criticidad" expand="block" id="b-guardar" size="large">Crear</ion-button>
 </ion-content>
