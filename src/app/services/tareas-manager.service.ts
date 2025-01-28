@@ -18,7 +18,9 @@ export class TareasManagerService {
     //Llamada asíncrona al servicio de almacenamienot (angularStorage)
     this.almacenamientoService.getTareas()
     .then(data=>{
-      this.tareas = data;
+      if (data!=null){//Si no hay tareas almacenadas
+        this.tareas = data;
+      }
     })
     .catch(error=>{
       console.error("Ha ocurrido un error al leer los datos");
