@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Criticidad, Tarea } from '../interfaces/tarea';
+import { LocalStorageService } from './local-storage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -7,11 +8,14 @@ import { Criticidad, Tarea } from '../interfaces/tarea';
 export class TareasManagerService {
 
   private tareas : Array<Tarea> = [];
+  private almacenamientoService  = inject(LocalStorageService);
   constructor() { 
-    this.inicializarTareasFake();
+    //this.inicializarTareasFake();
+    this.tareas = this.almacenamientoService.getTareas();
   }
   public addTarea(tarea: Tarea) {
     this.tareas.push({...tarea});//Para evitar duplicar la referencia
+    this.almacenamientoService.guardarTareas(this.tareas);
   }
   public getTareas() {
     return this.tareas;
@@ -19,16 +23,19 @@ export class TareasManagerService {
 
   finalizarTarea(tarea: Tarea) {
     tarea.estado = 'Finalizada';
+    this.almacenamientoService.guardarTareas(this.tareas);
   }
   procesarTarea(tarea: Tarea){
     tarea.estado = 'En proceso';
+    this.almacenamientoService.guardarTareas(this.tareas);
   }
   reabrirTarea(tarea: Tarea) {
     tarea.estado = 'Pendiente';
+    this.almacenamientoService.guardarTareas(this.tareas);
   }
 
 
-
+  /*
   private inicializarTareasFake() {
     let tareaFake1 : Tarea = {
       nombre: 'Comprar pan',
@@ -55,4 +62,5 @@ export class TareasManagerService {
     this.addTarea(tareaFake2);
     this.addTarea(tareaFake3)
   }
+  */
 }
