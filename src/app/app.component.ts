@@ -15,10 +15,14 @@ export class AppComponent {
   public appPages = [
     { title: 'Crear', url: '/nueva-tarea', icon: 'create' },
     { title: 'Todas', url: '/todas-tareas', icon: 'paper-plane' },
-    { title: 'Buscar', url: '/buscar-tareas', icon: 'heart' },
+    { title: 'Buscar', url: '/buscar-tareas/Todas', icon: 'heart' },
     { title: 'Acerca de...', url: '/acerca-de', icon: 'archive' },
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
+  public labels = [
+    {title: 'Alta', url: '/buscar-tareas/Alta'},
+    {title: 'Media', url: '/buscar-tareas/Media'},
+    {title: 'Baja', url: '/buscar-tareas/Baja'},
+  ];
   constructor() {
     addIcons({ createOutline, createSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, heartOutline, heartSharp, archiveOutline, archiveSharp, trashOutline, trashSharp, warningOutline, warningSharp, bookmarkOutline, bookmarkSharp });
   }

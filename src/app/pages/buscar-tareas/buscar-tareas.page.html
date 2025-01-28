@@ -22,7 +22,7 @@
         </ion-avatar>
 
 
-        <ion-label>{{tarea.nombre}}</ion-label>
+        <ion-label>{{tarea.nombre}}-{{tarea.criticidad}}</ion-label>
       </ion-item>
       <ion-item-options slot="end">
         <ion-item-option color="warning" *ngIf="tarea.estado !== 'Pendiente'" (click)="reabrirTarea(tarea)">

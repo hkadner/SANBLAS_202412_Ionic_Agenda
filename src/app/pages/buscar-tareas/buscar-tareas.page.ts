@@ -6,6 +6,7 @@ import { TareasManagerService } from 'src/app/services/tareas-manager.service';
 import { Tarea } from 'src/app/interfaces/tarea';
 import { logoIonic } from 'ionicons/icons';
 import { addIcons } from 'ionicons';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -16,15 +17,21 @@ import { addIcons } from 'ionicons';
   imports: [IonBadge, IonInput, IonItemOption, IonIcon, IonItemOptions, IonLabel, IonAvatar, IonItem, IonItemSliding, IonList, IonButtons, IonMenuButton, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
 })
 export class BuscarTareasPage implements OnInit {
+  private activatedRoute = inject(ActivatedRoute);//Para recuperar los parámetros del routing
   textoBusqueda : string = "";
   tareasManager = inject(TareasManagerService);
   tareas = this.tareasManager.getTareas();
   tareasFiltradas = this.tareas;
+  criticidad : string ="";
   constructor() { 
     addIcons({ logoIonic });
   }
 
   ngOnInit() {
+    this.criticidad = this.activatedRoute.snapshot.paramMap.get('criticidad') as string;
+    if (this.criticidad!=='Todas') {
+      this.tareasFiltradas = this.tareas.filter(tarea=>tarea.criticidad === this.criticidad);
+    }
   }
 
   buscar(){

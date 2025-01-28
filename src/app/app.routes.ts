@@ -24,7 +24,7 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/todas-tareas/todas-tareas.page').then( m => m.TodasTareasPage)
   },
   {
-    path: 'buscar-tareas',
+    path: 'buscar-tareas/:criticidad',
     loadComponent: () => import('./pages/buscar-tareas/buscar-tareas.page').then( m => m.BuscarTareasPage)
   },
   {
