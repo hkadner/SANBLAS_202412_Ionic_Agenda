@@ -39,5 +39,6 @@
     </ion-select>
   </ion-item>
 
-  <ion-button (click)="guardarTarea()"[disabled]="!tarea.nombre || !tarea.descripcion || !tarea.criticidad" expand="block" id="b-guardar" size="large">Crear</ion-button>
+  <ion-button (click)="guardarTarea()" [disabled]="!tarea.nombre || !tarea.descripcion || !tarea.criticidad" expand="block" id="b-guardar" size="large">Crear</ion-button>
+  <ion-toast trigger="b-guardar" message="Tarea creada" [duration]="2000"></ion-toast>
 </ion-content>

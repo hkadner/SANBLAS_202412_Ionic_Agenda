@@ -38,13 +38,16 @@ export class BuscarTareasPage implements OnInit {
     this.tareasFiltradas = this.tareas.filter(tarea=>tarea.nombre?.includes(this.textoBusqueda));
   }
 
-  finalizarTarea(tarea : Tarea){
+  finalizarTarea(tarea : Tarea, slidingItem: IonItemSliding){
     this.tareasManager.finalizarTarea(tarea);
+    slidingItem.close();
   }
-  procesarTarea(tarea : Tarea){
+  procesarTarea(tarea : Tarea, slidingItem: IonItemSliding){
     this.tareasManager.procesarTarea(tarea);
+    slidingItem.close();
   }
-  reabrirTarea(tarea : Tarea){
+  reabrirTarea(tarea : Tarea, slidingItem: IonItemSliding){
     this.tareasManager.reabrirTarea(tarea);
+    slidingItem.close();
   }
 }

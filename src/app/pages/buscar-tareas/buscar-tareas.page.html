@@ -13,7 +13,7 @@
   <ion-list [inset]="true">
     <ion-input placeholder="Buscar" (input)="buscar()" [(ngModel)]="textoBusqueda"></ion-input>
     @for (tarea of tareasFiltradas; track $index) {
-    <ion-item-sliding>
+    <ion-item-sliding #slidingItem>
       <ion-item [button]="true">
         <ion-avatar aria-hidden="true" slot="start">
           <ion-icon class="icono-estado" name="logo-ionic" color="danger" *ngIf="tarea.estado === 'Pendiente'" size="large"></ion-icon>
@@ -25,14 +25,14 @@
         <ion-label>{{tarea.nombre}}-{{tarea.criticidad}}</ion-label>
       </ion-item>
       <ion-item-options slot="end">
-        <ion-item-option color="warning" *ngIf="tarea.estado !== 'Pendiente'" (click)="reabrirTarea(tarea)">
+        <ion-item-option color="warning" *ngIf="tarea.estado !== 'Pendiente'" (click)="reabrirTarea(tarea, slidingItem)">
           <ion-label>Pendiente</ion-label>
         </ion-item-option>
-        <ion-item-option color="tertiary" *ngIf="tarea.estado !== 'En proceso'" (click)="procesarTarea(tarea)">
+        <ion-item-option color="tertiary" *ngIf="tarea.estado !== 'En proceso'" (click)="procesarTarea(tarea, slidingItem)">
           <ion-label>En proceso</ion-label>
         </ion-item-option>
         <ion-item-option color="danger" expandable="true" *ngIf="tarea.estado !== 'Finalizada'"
-          (click)="finalizarTarea(tarea)">
+          (click)="finalizarTarea(tarea, slidingItem)">
           <ion-label>Finalizado</ion-label>
         </ion-item-option>
       </ion-item-options>

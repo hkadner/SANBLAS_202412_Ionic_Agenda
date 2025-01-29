@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonSelect, IonSelectOption, IonDatetimeButton, IonModal, IonTextarea, IonItem, IonButtons, IonMenuButton, IonContent, IonHeader, IonTitle, IonToolbar, IonInput, IonList, IonDatetime, IonLabel, IonButton } from '@ionic/angular/standalone';
+import { IonSelect, IonSelectOption, IonDatetimeButton, IonModal, IonTextarea, IonItem, IonButtons, IonMenuButton, IonContent, IonHeader, IonTitle, IonToolbar, IonInput, IonList, IonDatetime, IonLabel, IonButton, IonToast } from '@ionic/angular/standalone';
 import { Tarea } from 'src/app/interfaces/tarea';
 import { TareasManagerService } from 'src/app/services/tareas-manager.service';
 
@@ -10,7 +10,7 @@ import { TareasManagerService } from 'src/app/services/tareas-manager.service';
   templateUrl: './nueva-tarea.page.html',
   styleUrls: ['./nueva-tarea.page.scss'],
   standalone: true,
-  imports: [IonButton, IonLabel, IonSelect, IonSelectOption, IonDatetimeButton, IonModal, IonDatetime, IonTextarea, IonInput, IonList, IonItem, IonButtons, IonMenuButton, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [IonToast, IonButton, IonLabel, IonSelect, IonSelectOption, IonDatetimeButton, IonModal, IonDatetime, IonTextarea, IonInput, IonList, IonItem, IonButtons, IonMenuButton, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
 })
 export class NuevaTareaPage implements OnInit {
   tarea: Tarea = {};
